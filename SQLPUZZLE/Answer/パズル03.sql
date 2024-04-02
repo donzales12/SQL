@@ -15,7 +15,8 @@ INSERT INTO Procs VALUES( 80, 'Dow'  , '01-07-01 18:00', '01-07-01 19:00');
 
 select proc_id,(
     SELECT COUNT(*) 
-    from Procs p 
-    WHERE (p.start_time<start_time OR p.end_time>end_time)
+    from Procs pc 
+    WHERE (pc.start_time<pp.start_time AND pc.end_time>pp.start_time)
+           OR (pc.end_time>pp.end_time AND pc.start_time<pp.end_time)
 ) as max_inst_count
-from Procs
+from Procs pp

@@ -13,6 +13,7 @@ INSERT INTO Procs VALUES( 60, 'Dow'  , '01-07-01 12:30', '01-07-01 13:30');
 INSERT INTO Procs VALUES( 70, 'Dow'  , '01-07-01 13:30', '01-07-01 14:30'); 
 INSERT INTO Procs VALUES( 80, 'Dow'  , '01-07-01 18:00', '01-07-01 19:00');
 
+-- これでは範囲内での重なりは取れない
 select proc_id,(
     SELECT COUNT(*) 
     from Procs pc 

@@ -21,7 +21,8 @@ SELECT F1.seat AS start, L1.seat AS finish,
 
 -- 結合版
 -- ①inner joinで小さい値とそれより大きい値のペアを作る
--- ②最小空席(小さい値+1)と最大空席(MIN(大きい値)-1)に集計
+-- ③最小空席(小さい値+1)と最大空席(MIN(大きい値)-1)を比較
+-- ③最小空席(小さい値+1)と最大空席(MIN(大きい値)-1)に集計
 SELECT (R1.seat + 1) AS start,
        (MIN(R2.seat) - 1) AS finish
   FROM Restaurant AS R1

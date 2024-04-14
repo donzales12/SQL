@@ -34,4 +34,12 @@ SELECT course_nbr,student_name,MIN(teacher_name) teacher1,'more' teacher2
 FROM register
 GROUP BY course_nbr,student_name
 HAVING COUNT(teacher_name)>2
-ORDER BY course_nbr asc
+ORDER BY course_nbr asc;
+
+SELECT course_nbr,student_name,MIN(teacher_name) teacher1,
+       (CASE COUNT(teacher_name) 
+            WHEN 1 THEN NULL
+            WHEN 2 THEN MAX(teacher_name)
+            ELSE 'more' END) teacher2
+FROM register
+GROUP BY course_nbr,student_name;

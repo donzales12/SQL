@@ -3,3 +3,4 @@ DELETE FROM Consumers
    AND (SELECT COUNT(*)
           FROM Consumers AS C1
          WHERE C1.address = Consumers.address) > 1;
+  
